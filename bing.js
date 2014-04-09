@@ -25,19 +25,25 @@ $(function()
     var data = { q: query,};
     var hashOfThumbs = {};
     // Calls the proxy, passing the query, service operation and market.
-    $.getJSON('bing_proxy.php', data, function(obj)
-      {
-        if (obj.d !== undefined)
-        {
-          var items = obj.d.results;
-          for (var k=0; k < 12; k++)
-          {
-            thisTile = (Math.pow(2, (k+1))).toString();
-            hashOfThumbs[thisTile] = items[k].Thumbnail.MediaUrl;
-            }
-          }
-        });
-    //alert(hashOfThumbs);
+    $.ajax({
+       type: 'GET',
+       url: 'bing_proxy.php',
+       dataType: 'json',
+       success: function(obj)
+         {
+           if (obj.d !== undefined)
+           {
+             var items = obj.d.results;
+             for (var k=0; k < 12; k++)
+             {
+               thisTile = (Math.pow(2, (k+1))).toString();
+               hashOfThumbs[thisTile] = items[k].Thumbnail.MediaUrl;
+               }
+             }
+           },
+       data: data,
+       async: false
+    });
     return hashOfThumbs;
 }
 
