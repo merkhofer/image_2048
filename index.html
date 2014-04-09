@@ -10,7 +10,6 @@
   <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x920.png"  media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone, retina -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
@@ -20,7 +19,7 @@
  </head>
  <body>
   <div id="wrapper">
-  <div class="container">
+  <div class="container" id="make_query">
    <h1>Make Me ____ 2048.</h1>
    <p>Get the top image results from any Bing image search to fill your tiles.</p>
    <form id="my_form">
@@ -28,6 +27,8 @@
     <input id="query" name="query" type="text" size="60" /><br /><br />
     <input id="bt_search" name="bt_search" type="button" class="button" value="Search" />
    </form>
+   </div>
+   <div>
    <input id="new_query" name="new_query" type="button" class="button" value="New Query" style="display:none">
   </div>
 

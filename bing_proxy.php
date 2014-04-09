@@ -3,23 +3,14 @@
  * PHP proxy for using the Bing Search API with AJAX
  */
 
-$acctKey  = 'FcAZiOJzaOBaRpBt4/DOKJUpMogvI6jAMBprJ/k/3IE';
+$acctKey  = 'GET-YOUR-OWN';
 $rootUri = 'https://api.datamarket.azure.com/Bing/Search';
 
 // Get the query. Default to 'sushi'.
-$query = ($_GET['q']) ? $_GET['q'] : 'sushi';
-
-// Get the service operation. Default to Web.
-$serviceOp = ($_GET['sop']) ? $_GET['sop'] : 'Web';
-
-// Get the market. Default to en-us.
-$market = ($_GET['market']) ? $_GET['market'] : 'en-us';
+$query = ($_GET['q']) ? $_GET['q'] : 'muppets';
 
 // Encode the query along with the single quotation marks that must surround it.
 $query = urlencode("'$query'");
-
-// Encode the market along with the single quotation marks that must surround it.
-$market = urlencode("'$market'");
 
 // Construct the full URL for the query.
 $requestUri = "$rootUri/Image?\$format=json&Query=$query";

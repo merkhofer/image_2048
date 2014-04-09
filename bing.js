@@ -9,21 +9,20 @@ $(function()
     // Clear the results div.
     $('#results').empty();
     var query = $('#query').val();
-    var serviceOp = $('input[name=service_op]:checked', '#my_form').val();
     if (query)
       thumbs = search(query, serviceOp);
       var actuated_bing = new BingActuator(thumbs);
       new GameManager(4, KeyboardInputManager, actuated_bing, LocalStorageManager);
       $("#game_title").text(query+' 2048');
       $("#game").show();
-      $("#my_form").hide();
+      $("#make_query").hide();
       $('#new_query').show();
   });
 
-  function search(query, serviceOp)
+  function search(query)
   {
     // Establish the data to pass to the proxy.
-    var data = { q: query, sop: serviceOp, market: 'en-us' };
+    var data = { q: query,};
     var hashOfThumbs = {};
     // Calls the proxy, passing the query, service operation and market.
     $.getJSON('bing_proxy.php', data, function(obj)
