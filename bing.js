@@ -10,7 +10,7 @@ $(function()
     $('#results').empty();
     var query = $('#query').val();
     if (query)
-      thumbs = search(query, serviceOp);
+      thumbs = search(query);
       var actuated_bing = new BingActuator(thumbs);
       new GameManager(4, KeyboardInputManager, actuated_bing, LocalStorageManager);
       $("#game_title").text(query+' 2048');
