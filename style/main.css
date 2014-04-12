@@ -21,6 +21,12 @@ h1.title {
   display: block;
   float: left; }
 
+.intro {
+  font-size: 50pt;
+  font-weight: bold;
+  display: inline-block;
+}  
+
 @-webkit-keyframes move-up {
   0% {
     top: 25px;
@@ -70,11 +76,11 @@ h1.title {
     font-size: 13px;
     line-height: 13px;
     text-align: center;
-    color: #eee4da; }
+    color: White; }
   .score-container .score-addition, .best-container .score-addition {
     position: absolute;
     right: 30px;
-    color: red;
+    color: White;
     font-size: 25px;
     line-height: 25px;
     font-weight: bold;
@@ -537,7 +543,7 @@ hr {
         border-radius: 3px;
         padding: 0 20px;
         text-decoration: none;
-        color: #f9f6f2;
+        color: Cyan;
         height: 40px;
         line-height: 42px;
         margin-left: 9px; }
@@ -545,7 +551,7 @@ hr {
           display: none; }
       .game-container .game-message.game-won {
         background: rgba(237, 194, 46, 0.5);
-        color: #f9f6f2; }
+        color: Grey; }
         .game-container .game-message.game-won a.keep-playing-button {
           display: inline-block; }
       .game-container .game-message.game-won, .game-container .game-message.game-over {

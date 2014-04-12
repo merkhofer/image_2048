@@ -6,8 +6,6 @@ $(function()
   $('#bt_search').click(function(e)
   {
     e.preventDefault();
-    // Clear the results div.
-    $('#results').empty();
     var query = $('#query').val();
     if (query)
       thumbs = search(query);
@@ -15,19 +13,21 @@ $(function()
       new GameManager(4, KeyboardInputManager, actuated_bing, LocalStorageManager);
       $("#game_title").text(query+' 2048');
       $("#game").show();
+      //you COULD change the query, except the game has taken control of 4 of the letter keys...
       $("#make_query").hide();
-      $('#new_query').show();
-  });
+  }
+  );
 
   function search(query)
   {
     // Establish the data to pass to the proxy.
     var data = { q: query,};
     var hashOfThumbs = {};
-    // Calls the proxy, passing the query, service operation and market.
+    // Calls the proxy, passing the query
+    // use AJAX in order to send synchronously
     $.ajax({
        type: 'GET',
-       url: 'bing_proxy.php',
+       url: '../bing_proxy.php',
        dataType: 'json',
        success: function(obj)
          {
@@ -37,6 +37,7 @@ $(function()
              for (var k=0; k < 12; k++)
              {
                thisTile = (Math.pow(2, (k+1))).toString();
+               //make an object mapping tile number to the url of a thumbnail
                hashOfThumbs[thisTile] = items[k].Thumbnail.MediaUrl;
                }
              }
