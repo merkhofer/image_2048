@@ -27,7 +27,7 @@ $(function()
     // use AJAX in order to send synchronously
     $.ajax({
        type: 'GET',
-       url: '../bing_proxy.php',
+       url: 'bing_proxy.php',
        dataType: 'json',
        success: function(obj)
          {
